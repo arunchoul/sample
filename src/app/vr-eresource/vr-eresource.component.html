@@ -1,0 +1,176 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        
+      </div>
+         
+      <div class="col-md-8">
+          <table datatable [dtOptions]="dtOptions" class="row-border hover border">
+              <thead class="text-light bg-secondary">
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  
+                  <th>PAN Number</th>
+                  <th>Email</th>
+                  <th>Mobile Number</th>
+                  <th>DOB</th>
+                  <th>View/Edit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let md of multipleData1">
+                  <td>{{md.id}}</td>
+                  <td>{{md.employerName}}</td>
+                  
+                  <td>{{md.panNum}}</td>
+                  <td>{{md.email}}</td>
+                  <td>{{md.mobile}}</td>
+                  <td>{{md.dOB}}</td>
+                  <td>
+                    <button type="button" (click)="onUpdate($event)" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
+                      Update
+                    </button> 
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">View/Update</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                              <!-- <p></p><p>{{btn2}}</p><p>{{btn3}}</p><p>{{btn4}}</p> -->
+                              <!-- <ul>
+                                <li>{{md.employerName}}</li>
+                                <li>{{md.panNum}}</li>
+                                <li>{{md.email}}</li>
+                                <li>{{md.mobile}}</li>
+                                <li>{{md.dOB}}</li>
+                                #myForm='ngForm' (ngSubmit)='onSubmit(myForm.value);myForm.reset()
+                              </ul> -->
+                              <!-- {{displayUpdate | json }} -->
+                              <form #upDate="ngForm" (ngSubmit)='onUpdateForm(upDate.value); upDate.reset()'>
+                                <div class="form-group">
+                                    
+                                  <label for="notr">Name of the Resource</label>
+                                  <input type="text" id="notr" value="{{dispalyData.nameOfTheResource}}" class="form-control" name="nameOfTheResource" ngModel [(ngModel)]="displayUpdate.nameOfTheResource" #nameOfTheResource="ngModel">
+                                  
+                                  <label for="anum">Adhar Number</label>
+                                  <input type="text" id="anum" value="{{dispalyData.adharNumber}}" class="form-control" name="adharNumber"  ngModel [(ngModel)]="displayUpdate.adharNumber" #adharNumber="ngModel">
+                    
+                                  <label for="pnum">PAN Number</label>
+                                  <input type="text" id="pnum" value="{{dispalyData.panNum}}" class="form-control" name="panNumber"  ngModel [(ngModel)]="displayUpdate.panNumber" #panNumber="ngModel">
+                    
+                                  <label for="mnum">Mobile</label>
+                                  <input type="text" id="mnum" value="{{dispalyData.mobile}}" class="form-control" name="mobile"  ngModel [(ngModel)]="displayUpdate.mobile" #mobile="ngModel">
+                    
+                                  <label for="email">Email</label>
+                                  <input type="text" value="{{dispalyData.email}}" id="email" class="form-control" name="email"  ngModel [(ngModel)]="displayUpdate.email" #email="ngModel">
+                    
+                                  <label for="comemail">Company Email</label>
+                                  <input type="text" id="comemail" value="{{dispalyData.cEmail}}" class="form-control" name="cEmail"  ngModel [(ngModel)]="displayUpdate.cEmail" #cEmail="ngModel"> 
+                                  
+                                  <label for="dob">Date Of Birth</label>
+                                  <input type="date" id="dob" value="{{dispalyData.dob}}" class="form-control" name="dob"  ngModel [(ngModel)]="displayUpdate.dob" #dob="ngModel"> 
+                    
+                                  <!-- <label for="date">DOB</label>
+                                  <input type="date" placeholder=" " value="{{dispalyData.dob}}" id="date" class="form-control" name="dob"  ngModel [(ngModel)]="displayUpdate.dob" #dob="ngModel"> -->
+                               
+                                  <label for="ctc">Current CTC</label>
+                                  <input type="text" id="ctc" value="{{dispalyData.currentCTC}}" class="form-control" name="currentCTC"  ngModel [(ngModel)]="displayUpdate.currentCTC" #currentCTC="ngModel">
+                    
+                                  <label for="ectc">Expected CTC</label>
+                                  <input type="text" id="ectc" value="{{dispalyData.expectedCTC}}"  class="form-control" name="expectedCTC"  ngModel [(ngModel)]="displayUpdate.expectedCTC" #expectedCTC="ngModel">
+                    
+                                  <label for="period">Notice period</label>
+                                  <input type="text" id="period" value="{{dispalyData.noticePeriod}}" class="form-control" name="noticePeriod"  ngModel [(ngModel)]="displayUpdate.noticePeriod" #noticePeriod="ngModel">
+                    
+                                  <label for="curcom">Current Company</label>
+                                  <input type="text" id="curcom" value="{{dispalyData.currentCompany}}" class="form-control" name="currentCompany"  ngModel [(ngModel)]="displayUpdate.currentCompany" #currentCompany="ngModel">
+                    
+                                  <label for="ename">Employer name</label>
+                                  <input type="text" id="ename" value="{{dispalyData.employerName}}" class="form-control" name="employerName"  ngModel [(ngModel)]="displayUpdate.employerName" #employerName="ngModel">
+                    
+                                  <label for="loc">Location</label>
+                                  <input type="text" id="loc" value="{{dispalyData.location}}" class="form-control" name="location"  ngModel [(ngModel)]="displayUpdate.location" #location="ngModel">
+                    
+                                  <label for="moe">Mode of Employment</label>
+                                  <input type="text" id="moe" value="{{dispalyData.modeOfEmployment}}" class="form-control" name="modeOfEmployment"  ngModel [(ngModel)]="displayUpdate.modeOfEmployment" #modeOfEmployment="ngModel">
+                    
+                                  <label for="exp">Experience</label>
+                                  <input type="text" id="exp" value="{{dispalyData.experience}}" class="form-control" name="experience"  ngModel [(ngModel)]="displayUpdate.experience" #experience="ngModel">
+                    
+                                  <label for="rexp">Relevant Experience</label>
+                                  <input type="text" id="rexp" value="{{dispalyData.relevantExperience}}" class="form-control" name="relevantExperience"  ngModel [(ngModel)]="displayUpdate.relevantExperience" #relevantExperience="ngModel">
+                    
+                                  <label for="dexp">Domain Experience</label>
+                                  <input type="text" id="dexp" value="{{dispalyData.domainExperience}}" class="form-control" name="domainExperience"  ngModel [(ngModel)]="displayUpdate.domainExperience" #domainExperience="ngModel">
+                    
+                                  <label for="priskill">Primary skill</label>
+                                  <input type="text" id="priskill" value="{{dispalyData.primarySkill}}" class="form-control" name="primarySkill"  ngModel [(ngModel)]="displayUpdate.primarySkill" #primarySkill="ngModel">
+                    
+                                  <label for="secskill">Secondary Skill</label>
+                                  <input type="text" id="secskill" value="{{dispalyData.secondarySkill}}" class="form-control" name="secondarySkill"  ngModel [(ngModel)]="displayUpdate.secondarySkill" #secondarySkill="ngModel">
+                    
+                                  <label for="comment">Comments</label>
+                                  <input type="text" id="comment" value="{{dispalyData.comments}}" class="form-control" name="comments"  ngModel [(ngModel)]="displayUpdate.comments" #comments="ngModel">
+                    
+                                   
+                                  <label class="btn btn-default">
+                                    Upload Resume <input type="file" value="{{dispalyData.uploadResume}}">
+                                  </label>
+                                  <br>
+                                  <!-- <button type="submit" class="btn btn-default btnmar">Submit</button>
+                        
+                                  <button type="submit" class="btn btn-default btnmar">Cancel</button> -->
+                                </div>
+                                <button type="submit" class="btn btn-primary" (click)="onUpdateDetails()" >Save changes</button>
+                              </form>  
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                           
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                        
+                  </td>
+                </tr>
+      
+                
+              </tbody>
+            </table>
+      </div>
+       <div class="col-md-2">
+       
+      </div> 
+    </div>
+  </div>
+
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+      Launch demo modal
+    </button>
+    
+    <!-- Modal -->
+    <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div> --> 

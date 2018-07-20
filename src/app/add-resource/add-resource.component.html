@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8">
+      <div class="bs-example">
+        <form #myForm='ngForm' (ngSubmit)='onSubmit(myForm.value);myForm.reset()'>
+            <div class="form-group">
+                <div>
+              <label for="cnt">Name of the Resource</label>
+                <select id="country" name="nameOfTheResource" ngModel #nameOfTheResource="ngModel">
+
+                  
+                  <option value="China">Software Developer</option>
+                  <option value="India">Test Engineer</option>
+                  <option value="UK">Java Developer</option>
+                  <option value="USA">Dot Net Developer</option>
+                </select>
+              </div>
+             
+              <label for="anum">Adhar Number</label>
+              <input type="text" class="form-control" name="adharNumber"  ngModel #adharNumber="ngModel">
+              
+              <label for="pnum">PAN Number</label>
+              <input type="text" class="form-control" name="panNumber"  ngModel #panNumber="ngModel">
+
+              <label for="mnum">Mobile</label>
+              <input type="text" id="mnum" class="form-control" name="mobile"  ngModel #mobile="ngModel">
+
+              <label for="email">Email</label>
+              <input type="text" id="email" class="form-control" name="email"  ngModel #email="ngModel">
+
+             <label for="comemail">Company Email</label>
+              <input type="text" id="comemail" class="form-control" name="cEmail"  ngModel #cEmail="ngModel"> 
+
+              <label for="date">DOB</label>
+              <input type="date" placeholder="dd/mm/yyyy" id="date" class="form-control" name="dob"  ngModel #dob="ngModel">
+           
+              <label for="ctc">Current CTC</label>
+              <input type="text" id="ctc" class="form-control" name="currentCTC"  ngModel #currentCTC="ngModel">
+
+              <label for="ectc">Expected CTC</label>
+              <input type="text" id="ectc" class="form-control" name="expectedCTC"  ngModel #expectedCTC="ngModel">
+
+              <label for="period">Notice period</label>
+              <input type="text" id="period" class="form-control" name="noticePeriod"  ngModel #noticePeriod="ngModel">
+
+              <label for="curcom">Current Company</label>
+              <input type="text" id="curcom" class="form-control" name="currentCompany"  ngModel #currentCompany="ngModel">
+
+              <label for="ename">Employer name</label>
+              <input type="text" id="ename" class="form-control" name="employerName"  ngModel #employerName="ngModel">
+
+              <label for="loc">Location</label>
+              <input type="text" id="loc" class="form-control" name="location"  ngModel #location="ngModel">
+
+              <label for="moe">Mode of Employment</label>
+              <input type="text" id="moe" class="form-control" name="modeOfEmployment"  ngModel #modeOfEmployment="ngModel">
+
+              <label for="exp">Experience</label>
+              <input type="text" id="exp" class="form-control" name="experience"  ngModel #experience="ngModel">
+
+              <label for="rexp">Relevant Experience</label>
+              <input type="text" id="rexp" class="form-control" name="relevantExperience"  ngModel #relevantExperience="ngModel">
+
+              <label for="dexp">Domain Experience</label>
+              <input type="text" id="dexp" class="form-control" name="domainExperience"  ngModel #domainExperience="ngModel">
+
+              <label for="priskill">Primary skill</label>
+              <input type="text" id="priskill" class="form-control" name="primarySkill"  ngModel #primarySkill="ngModel">
+
+              <label for="secskill">Secondary Skill</label>
+              <input type="text" id="secskill" class="form-control" name="secondarySkill"  ngModel #secondarySkill="ngModel">
+
+              <label for="comment">Comments</label>
+              <input type="text" id="comment" class="form-control" name="comments"  ngModel #comments="ngModel">
+
+               
+              <label class="btn btn-default">
+                Upload Resume <input type="file">
+              </label>
+              <br>
+              <button type="submit" class="btn btn-default btnmar">Submit</button>
+    
+              <button type="submit" class="btn btn-default btnmar">Cancel</button>
+            </div>
+          </form>  
+      </div>
+    </div>
+
+    <div class="col-md-2">
+
+    </div>
+  </div>
+</div>

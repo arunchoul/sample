@@ -1,4 +1,4 @@
-/* .comSize {
+.comSize {
     height: 200px;
     width: 300px;
     color: red;
@@ -7,13 +7,14 @@
     margin-top: 50px;
     padding: 80px;
     border-radius: 5px;
+    box-shadow: 10px 5px 5px gray;
 }
 .mLeft{
     margin-left: 26px;
 }
+
+
+
 /* .mRight{
     margin-left: 20px;
-} */ 
-.txtColor{
-    color: white;
-}
+} */
